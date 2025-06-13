@@ -1,0 +1,261 @@
+.about {
+  padding: 8rem 2rem 4rem;
+  min-height: 100vh;
+
+  &-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &-header {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    h1 {
+      background: linear-gradient(135deg, var(--text) 0%, var(--primary-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    p {
+      font-size: 1.125rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  }
+
+  &-skills {
+    margin-bottom: 4rem;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--primary);
+    }
+  }
+
+  &-services {
+    margin-bottom: 4rem;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--primary);
+    }
+  }
+
+  &-experience h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary);
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.skill-card {
+  background: rgba(var(--surface-rgb), 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(var(--border-rgb), 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    background: rgba(var(--surface-rgb), 0.9);
+    border-color: var(--primary);
+  }
+
+  .skill-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  h3 {
+    color: var(--text);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .skill-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(var(--border-rgb), 0.3);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+
+    .skill-progress {
+      height: 100%;
+      border-radius: 4px;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        animation: shimmer 2s infinite;
+      }
+    }
+  }
+
+  .skill-percentage {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: rgba(var(--surface-rgb), 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(var(--border-rgb), 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    background: rgba(var(--surface-rgb), 0.9);
+    border-color: var(--primary);
+  }
+
+  .service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  h3 {
+    color: var(--text);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .service-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+.timeline {
+  max-width: 600px;
+  margin: 0 auto;
+
+  &-item {
+    position: relative;
+    padding-left: 3rem;
+    padding-bottom: 2rem;
+    transition: all 0.3s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary), var(--primary-light));
+    }
+
+    &:hover {
+      transform: translateX(10px);
+    }
+  }
+
+  &-marker {
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 14px;
+    height: 14px;
+    background: var(--primary);
+    border-radius: 50%;
+    border: 3px solid var(--bg-primary);
+    z-index: 2;
+  }
+
+  &-content {
+    background: rgba(var(--surface-rgb), 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(var(--border-rgb), 0.3);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(var(--surface-rgb), 0.9);
+      border-color: var(--primary);
+    }
+
+    h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .timeline-period {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.6;
+    }
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+[data-theme="light"] .skill-card,
+[data-theme="light"] .service-card,
+[data-theme="light"] .timeline-content {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+}
+
+[data-theme="light"] .timeline-marker {
+  border-color: var(--bg-primary);
+}
