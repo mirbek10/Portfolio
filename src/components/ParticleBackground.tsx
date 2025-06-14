@@ -45,7 +45,7 @@ const ParticleBackground: React.FC = () => {
             },
             repulse: {
               distance: 200,
-              duration: 0.4,
+              duration:1,
             },
           },
         },
@@ -57,7 +57,7 @@ const ParticleBackground: React.FC = () => {
             color: theme === 'dark' ? "#10b981" : "#0dd44f",
             distance: 150,
             enable: true,
-            opacity: 0.3,
+            opacity: 0.7,
             width: 1,
           },
           move: {
@@ -67,7 +67,7 @@ const ParticleBackground: React.FC = () => {
               default: "bounce",
             },
             random: false,
-            speed: 1,
+            speed: { min: 1, max: 1.5 },
             straight: false,
           },
           number: {
