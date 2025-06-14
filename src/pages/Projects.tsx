@@ -4,6 +4,14 @@ import { FiExternalLink, FiGithub, FiX } from 'react-icons/fi';
 import { useLanguage } from '../contexts/LanguageContext';
 import Modal from '../components/Modal';
 import './Projects.scss';
+import img1 from '../Images/projecr1.png';
+import img2 from '../Images/project2.png';
+import img3 from '../Images/project3.png';
+import img4 from '../Images/project4.png';
+import img5 from '../Images/project5.png';
+
+
+
 
 interface Project {
   id: number;
@@ -23,34 +31,55 @@ const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: 'E-commerce Website',
+      title: 'Web Bicycle',
       description: 'Современный интернет-магазин с корзиной и оплатой',
-      image: 'https://images.pexels.com/photos/34577/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Stripe'],
-      liveUrl: '#',
-      githubUrl: '#',
-      details: 'Полнофункциональный интернет-магазин с возможностью добавления товаров в корзину, оформления заказа и интеграцией с платежной системой Stripe.'
+      image: img1,
+      technologies: ['React', 'Sass', 'Firebase', 'Framer Motion', "Redax-toolkit"],
+      liveUrl: 'https://bicycle-eight.vercel.app/',
+      githubUrl: 'https://github.com/mirbek10/bicycle',
+      details: 'Сайт современного интернет-магазина с корзиной и оплатой. Использованы React, TypeScript, Firebase, Framer Motion.'
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'Приложение для управления задачами с drag & drop',
-      image: 'https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React', 'JavaScript', 'CSS3', 'Local Storage'],
-      liveUrl: '#',
-      githubUrl: '#',
-      details: 'Интуитивное приложение для управления задачами с возможностью перетаскивания карточек между колонками и сохранением данных в localStorage.'
+      title: 'Snake Game',
+      description: 'Интуитивная игра "Змейка" с возможностью сохранения рекордов',
+      image: img2,
+      technologies: ['React', 'JavaScript', 'SCSS', 'Local Storage', 'Redux-Toolkit'],
+      liveUrl: 'https://snake-pi-five.vercel.app/',
+      githubUrl: 'https://github.com/mirbek10/snake',
+      details: 'Интуитивная игра "Змейка" с возможностью сохранения рекордов. Использованы React, JavaScript, CSS3, Local Storage.'
     },
     {
       id: 3,
-      title: 'Weather Dashboard',
-      description: 'Прогноз погоды с красивой анимацией',
-      image: 'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React', 'API Integration', 'SCSS', 'Framer Motion'],
-      liveUrl: '#',
-      githubUrl: '#',
-      details: 'Красивый дашборд с прогнозом погоды, анимированными элементами и интеграцией с API погодных сервисов.'
+      title: 'Tic Tac Toe',
+      description: 'Интуитивная игра "Крестики-нолики" ',
+      image: img3,
+      technologies: ['React', 'JavaScript', 'CSS3', 'Local Storage',],
+      liveUrl: 'https://tic-tac-toe-nine-rouge.vercel.app/',
+      githubUrl: 'https://github.com/mirbek10/Tic-tac-toe',
+      details: 'Интуитивная игра "Крестики-нолики". Использованы React, JavaScript, CSS3, Local Storage.'
+    },
+    {
+      id: 4,
+      title: 'Cinema App',
+      description: 'Современный интернет-кинопоиск с редакторами и поиском по жанрам',
+      image: img4,
+      technologies: ['React', 'JavaScript', 'CSS3', 'API',],
+      liveUrl: 'https://cinema-xi-khaki.vercel.app/',
+      githubUrl: 'https://github.com/mirbek10/Cinema',
+      details: 'Современный интернет-кинопоиск с редакторами и поиском по жанрам. Использованы React, JavaScript, CSS3, API.'
+    },
+    {
+      id:5,
+      title: 'CoctelDB',
+      description: 'Современный сайт для заказа напитков',
+      image: img5,
+      technologies: ['React', 'JavaScript', 'CSS3', 'Redux-Toolkit',],
+      liveUrl: 'https://coctel-db.vercel.app/',
+      githubUrl: 'https://github.com/mirbek10/CoctelDb',
+      details: 'Современный сайт для заказа напитков с поиском и фильтрами . Использованы React, JavaScript, CSS3, .'
     }
+
   ];
 
   const containerVariants = {

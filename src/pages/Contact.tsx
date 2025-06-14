@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiPhone, FiMapPin, FiSend } from 'react-icons/fi';
 import { FiGithub, FiInstagram, FiTwitter } from 'react-icons/fi';
+import { FaTelegramPlane } from "react-icons/fa";
 import { useLanguage } from '../contexts/LanguageContext';
 import './Contact.scss';
 
@@ -74,8 +75,8 @@ const Contact: React.FC = () => {
 
   const socialLinks = [
     { icon: FiGithub, href: 'https://github.com/mirbek10', label: 'GitHub', color: '#333' },
-    { icon: FiInstagram, href: '#', label: 'LinkedIn', color: '#de2183' },
-    { icon: FiTwitter, href: '#', label: 'Twitter', color: '#1da1f2' }
+    { icon: FiInstagram, href: 'https://www.instagram.com/bad.b0y10/', label: 'Instagram', color: '#de2183' },
+    { icon: FaTelegramPlane, href: 'https://t.me/atabekov_mirbek', label: 'Telegram', color: '#1da1f2' }
   ];
 
   return (
