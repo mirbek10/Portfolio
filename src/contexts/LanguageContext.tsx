@@ -20,7 +20,7 @@ const translations = {
       name: 'Мирбек Атанбеков',
       title: 'Front-End Developer',
       location: 'Бишкек, Кыргызстан',
-      experience: '5 месяцев опыта',
+      experience: '1 год опыта',
       description: 'Создаю современные и отзывчивые веб-приложения с использованием React, TypeScript и современных технологий.',
       viewWork: 'Посмотреть работы',
       contactMe: 'Связаться со мной'
@@ -73,7 +73,7 @@ const translations = {
       name: 'Mirbek Atanbekov',
       title: 'Front-End Developer',
       location: 'Bishkek, Kyrgyzstan',
-      experience: '5 months experience',
+      experience: '1 year experience',
       description: 'I create modern and responsive web applications using React, TypeScript and modern technologies.',
       viewWork: 'View My Work',
       contactMe: 'Contact Me'

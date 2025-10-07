@@ -177,6 +177,8 @@ const Projects: React.FC = () => {
                   {project.liveUrl && (
                     <motion.a
                       href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="project-link"
                       whileHover={{ scale: 1.2, rotate: 5 }}
                       whileTap={{ scale: 0.9 }}
