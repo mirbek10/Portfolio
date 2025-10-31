@@ -12,7 +12,7 @@ const ParticleBackground: React.FC = () => {
   }, []);
 
   const particlesLoaded = useCallback(async (container: Container | undefined) => {
-    // Particles loaded callback
+    await container?.refresh();
   }, []);
 
   return (
@@ -44,7 +44,7 @@ const ParticleBackground: React.FC = () => {
               quantity: 4,
             },
             repulse: {
-              distance: 200,
+              distance: 170,
               duration:1,
             },
           },
@@ -66,8 +66,8 @@ const ParticleBackground: React.FC = () => {
             outModes: {
               default: "bounce",
             },
-            random: false,
-            speed: { min: 1, max: 1.5 },
+            random: true,
+            speed: { min: 1, max: 2.3 },
             straight: false,
           },
           number: {

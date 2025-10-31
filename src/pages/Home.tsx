@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FiArrowRight, FiMapPin, FiCalendar, FiDownload } from 'react-icons/fi';
 import { useLanguage } from '../contexts/LanguageContext';
 import './Home.scss';
+import DecryptedText from '@/components/DecryptedText';
 
 const Home: React.FC = () => {
   const { t } = useLanguage();
@@ -51,32 +52,52 @@ const Home: React.FC = () => {
     >
       <div className="home-container">
         <motion.div className="home-content" variants={itemVariants}>
-          <motion.p 
+          <motion.p
             className="home-greeting"
             variants={itemVariants}
           >
             {t('home.greeting')}
           </motion.p>
-          
-          <motion.h1 
+
+          <motion.h1
             className="home-name"
             variants={itemVariants}
           >
-            {t('home.name')}
+            <DecryptedText
+              text={t('home.name')}
+              animateOn="view"
+              revealDirection="start"
+              className="decrypted-text"
+              parentClassName="home-name-parent"
+              speed={70}
+              sequential={true}
+              // useOriginalCharsOnly={true}
+              // characters="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+            />
           </motion.h1>
-          
-          <motion.h2 
+
+          <motion.h2
             className="home-title"
             variants={itemVariants}
           >
-            {t('home.title')}
+            <DecryptedText
+              text={t('home.title')}
+              animateOn="view"
+              revealDirection="start"
+              className="decrypted-text"
+              parentClassName="home-title-parent"
+              speed={50}
+              sequential={true}
+              // useOriginalCharsOnly={true}
+              // characters="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()"
+            />
           </motion.h2>
-          
-          <motion.div 
+
+          <motion.div
             className="home-info"
             variants={itemVariants}
           >
-            <motion.div 
+            <motion.div
               className="info-item"
               whileHover={{ scale: 1.05, x: 10 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -84,7 +105,7 @@ const Home: React.FC = () => {
               <FiMapPin className="info-icon" />
               <span>{t('home.location')}</span>
             </motion.div>
-            <motion.div 
+            <motion.div
               className="info-item"
               whileHover={{ scale: 1.05, x: 10 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -93,15 +114,23 @@ const Home: React.FC = () => {
               <span>{t('home.experience')}</span>
             </motion.div>
           </motion.div>
-          
-          <motion.p 
+
+          <motion.p
             className="home-description"
             variants={itemVariants}
           >
-            {t('home.description')}
+            <DecryptedText
+              text={t('home.description')}
+              animateOn="view"
+              revealDirection="start"
+              className="decrypted-text"
+              parentClassName="home-title-parent"
+              speed={50}
+              sequential={true}
+            />
           </motion.p>
-          
-          <motion.div 
+
+          <motion.div
             className="home-buttons"
             variants={itemVariants}
           >
@@ -115,7 +144,7 @@ const Home: React.FC = () => {
                 <FiArrowRight />
               </motion.span>
             </Link>
-            
+
             <Link to="/contact" className="btn btn-secondary">
               <motion.span
                 whileHover={{ scale: 1.05 }}
@@ -125,7 +154,7 @@ const Home: React.FC = () => {
               </motion.span>
             </Link>
 
-            <motion.button 
+            <motion.button
               className="btn btn-outline"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -135,8 +164,8 @@ const Home: React.FC = () => {
             </motion.button>
           </motion.div>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className="home-avatar"
           variants={itemVariants}
         >
@@ -157,14 +186,14 @@ const Home: React.FC = () => {
             />
             <motion.div
               className="avatar-glow"
-              animate={{ 
+              animate={{
                 scale: [1, 1.2, 1],
                 opacity: [0.5, 0.8, 0.5]
               }}
-              transition={{ 
-                duration: 3, 
-                repeat: Infinity, 
-                ease: "easeInOut" 
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
               }}
             />
           </motion.div>
