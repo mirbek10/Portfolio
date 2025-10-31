@@ -10,9 +10,6 @@ import img3 from '../Images/project3.png';
 import img4 from '../Images/project4.png';
 import img5 from '../Images/project5.png';
 
-
-
-
 interface Project {
   id: number;
   title: string;

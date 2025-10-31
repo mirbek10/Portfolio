@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiPhone, FiMapPin, FiSend } from 'react-icons/fi';
-import { FiGithub, FiInstagram, FiTwitter } from 'react-icons/fi';
+import { FiGithub, FiInstagram } from 'react-icons/fi';
 import { FaTelegramPlane } from "react-icons/fa";
 import { useLanguage } from '../contexts/LanguageContext';
 import './Contact.scss';
@@ -16,8 +16,47 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    
+
+    const formDataToSend = new FormData();
+    formDataToSend.append('access_key', "91013a6e-7bf1-47f5-9626-459905fbd1e6");
+    formDataToSend.append('subject', 'Новый запрос с портфолио');
+    formDataToSend.append('from_name', formData.name);
+    formDataToSend.append('email', formData.email);
+    const message = `
+═══════════════════════════════
+    НОВЫЙ ЗАПРОС С ВАШЕГО ПОРТФОЛИО
+═══════════════════════════════
+
+👤 ИНФОРМАЦИЯ О КЛИЕНТЕ:
+
+👤 Имя: ${formData.name}
+📧 Email: ${formData.email}
+💬 Сообщение:
+${formData.message}
+
+═══════════════════════════════
+    `;
+    formDataToSend.append('message', message);
+    try {
+      const res = fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend,
+      });
+      const result = res.then((res) => res.json());
+      result.then((data) => {
+        if (data.success) {
+          alert("Сообщение отправлено успешно!");
+          setFormData({
+            name: '',
+            email: '',
+            message: ''
+          });
+        }
+      });
+    } catch (error) {
+      console.error("Ошибка при отправке формы:", error);
+      alert("Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте еще раз позже.");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -94,7 +133,7 @@ const Contact: React.FC = () => {
         <div className="contact-content">
           <motion.div className="contact-info" variants={itemVariants}>
             <h2>Контактная информация</h2>
-            
+
             <div className="contact-list">
               {contactInfo.map((item) => (
                 <motion.a
@@ -104,7 +143,7 @@ const Contact: React.FC = () => {
                   whileHover={{ x: 10, scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="contact-icon"
                     style={{ backgroundColor: item.color }}
                     whileHover={{ rotate: 360, scale: 1.1 }}
@@ -129,8 +168,8 @@ const Contact: React.FC = () => {
                     href={social.href}
                     className="social-link"
                     style={{ borderColor: social.color }}
-                    whileHover={{ 
-                      scale: 1.1, 
+                    whileHover={{
+                      scale: 1.1,
                       rotate: 5,
                       backgroundColor: social.color,
                       color: 'white'
@@ -148,13 +187,13 @@ const Contact: React.FC = () => {
 
           <motion.div className="contact-form-container" variants={itemVariants}>
             <h2>Отправить сообщение</h2>
-            
+
             <motion.form
               className="contact-form"
               onSubmit={handleSubmit}
               variants={containerVariants}
             >
-              <motion.div className="form-group" variants={itemVariants}>
+              <motion.div className={`form-group ${formData.name ? 'filled' : ''}`} variants={itemVariants}>
                 <label htmlFor="name">{t('contact.name')}</label>
                 <motion.input
                   type="text"
@@ -168,7 +207,7 @@ const Contact: React.FC = () => {
                 />
               </motion.div>
 
-              <motion.div className="form-group" variants={itemVariants}>
+              <motion.div className={`form-group ${formData.email ? 'filled' : ''}`} variants={itemVariants}>
                 <label htmlFor="email">{t('contact.email')}</label>
                 <motion.input
                   type="email"
@@ -182,7 +221,7 @@ const Contact: React.FC = () => {
                 />
               </motion.div>
 
-              <motion.div className="form-group" variants={itemVariants}>
+              <motion.div className={`form-group form-textarea ${formData.message ? 'filled' : ''}`} variants={itemVariants}>
                 <label htmlFor="message">{t('contact.message')}</label>
                 <motion.textarea
                   id="message"
